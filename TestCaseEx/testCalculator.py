@@ -1,13 +1,12 @@
-# import sys
-# sys.path.append("..")
-
+import sys
+sys.path.append("..")
 import unittest
 from SourceCode.Calculator import Calculator
 from ddt import data, file_data, unpack,ddt
 from common import common
 
 path='TestData/'
-
+# path='../TestData/'
 @ddt
 class TestCalculator(unittest.TestCase):
     """docstring for TestAdd"""
@@ -17,7 +16,6 @@ class TestCalculator(unittest.TestCase):
     def testAdd(self,a,b,result):
         '''testAdd'''
         self.assertEqual(Calculator.addNum(self,float(a),float(b)),float(result))
-        print(result)
 
     @data(*common.getCsv(path+'testdel.csv'))
     @unpack

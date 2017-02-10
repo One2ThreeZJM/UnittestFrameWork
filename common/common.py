@@ -1,5 +1,5 @@
-# import sys
-# sys.path.append("..")
+import sys
+sys.path.append("..")
 import csv
 
 def getCsv(file_name):
