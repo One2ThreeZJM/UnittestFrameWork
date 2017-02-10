@@ -1,14 +1,15 @@
 import unittest
 from TestCaseEx.testCalculator import TestCalculator
- 
+from common import HTMLTestRunner
+
 path = './TestCaseEx'   
 
 if __name__ == '__main__':
     #找到目录下所有'test*.py'的文件,并且加载到TestSuite
-    # discover = unittest.defaultTestLoader.discover(path, pattern='test*.py')
+    discover = unittest.defaultTestLoader.discover(path, pattern='test*.py')
     #默认值是1，调试用2
-    # runner=unittest.TextTestRunner(verbosity=2)
-    # runner.run(discover)
+    runner=unittest.TextTestRunner(verbosity=2)
+    runner.run(discover)
 
     # ----------------------------------------------------------------------
     #因为使用ddt，所以创建类时，不能直接使用TestCalculator('testAdd')
@@ -20,9 +21,19 @@ if __name__ == '__main__':
     # test_runner.run(test_suite)
 
     # 运行测试套中包含的用例，将结果保存到result参数对应的TestResult对象中
-    discover = unittest.defaultTestLoader.discover(path, pattern='test*.py')
-    r = unittest.TestResult()
-    discover.run(r)
-    print(dir(discover))
-    print(r)
-    print(discover.countTestCases())
+    # discover = unittest.defaultTestLoader.discover(path, pattern='test*.py')
+    # r = unittest.TestResult()
+    # discover.run(r)
+    # print(r)
+    # print(discover.countTestCases())
+    
+
+    #使用HTMLTestRunner 生成报告
+    # discover = unittest.defaultTestLoader.discover(path, pattern='test*.py')
+    # with open('my_report.html', 'wb') as fp:
+    #     runner = HTMLTestRunner.HTMLTestRunner(
+    #                 stream=fp,
+    #                 title='My unit test',
+    #                 description='This demonstrates the report output by HTMLTestRunner.'
+    #                 )
+    #     runner.run(discover)
