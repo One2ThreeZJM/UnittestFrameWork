@@ -7,9 +7,9 @@ path = './TestCaseEx'
 if __name__ == '__main__':
     
     #找到目录下所有'test*.py'的文件,并且加载到TestSuite
-    discover = unittest.defaultTestLoader.discover(path, pattern='test*.py')
-    runner=unittest.TextTestRunner(verbosity=2)
-    testresult = runner.run(discover)
+    # discover = unittest.defaultTestLoader.discover(path, pattern='test*.py')
+    # runner=unittest.TextTestRunner(verbosity=2)
+    # testresult = runner.run(discover)
     # print(dir(testresult))
     # print('testsRun:',testresult.testsRun)
     # print('failures',len(testresult.failures))
@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     
 
-    # #TextTestRunner结果输出到文件
+    #TextTestRunner结果输出到文件
     # discover = unittest.defaultTestLoader.discover(path, pattern='test*.py')
     # log_file = "log_file.txt"
     # with open(log_file,'w') as f:
@@ -36,11 +36,11 @@ if __name__ == '__main__':
 
     # ----------------------------------------------------------------------
     # 运行测试套中包含的用例，将结果保存到result参数对应的TestResult对象中
-    # discover = unittest.defaultTestLoader.discover(path, pattern='test*.py')
-    # r = unittest.TestResult()
-    # discover.run(r)
-    # print(r)
-    # print(discover.countTestCases())
+    discover = unittest.defaultTestLoader.discover(path, pattern='test*.py')
+    r = unittest.TestResult()
+    result = discover.run(r)
+    print(dir(result))
+    print(help(result.addSuccess))
     
 
     # ----------------------------------------------------------------------
